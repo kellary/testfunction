@@ -1,4 +1,4 @@
-
+/* === RESET & GLOBAL === */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   padding-top: 100px;
 }
 
-
+/* === RAIN === */
 .rain {
   position: fixed;
   top: 0;
@@ -21,7 +21,7 @@ body {
   height: 100vh;
   overflow: hidden;
   z-index: 0;
-  pointer-events: none; 
+  pointer-events: none; /* важно: чтобы клики проходили сквозь дождь */
 }
 #fmcsa{
     scroll-margin-top: 150px;
@@ -58,7 +58,7 @@ body {
   }
 }
 
-
+/* === NAVIGATION === */
 .container {
     display: flex;
 
@@ -121,51 +121,36 @@ body {
   box-shadow: 0 0 20px rgba(108, 128, 255, 0.3), 0 0 40px rgba(108, 128, 255, 0.2);
 }
 
-
+/* === HERO === */
 .hero {
-  height: 100vh;
-  padding: 60px 40px;
+    height: 100vh;
+  padding: 50px 20px;
   max-width: 1800px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
 .hero-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  gap: 60px;
+  gap: 50px;
 }
 
-.hero-text {
+.hero-text, .hero-image {
   flex: 1;
   min-width: 300px;
-  max-width: 600px;
-  text-align: left;
 }
 
 .hero-title {
-  font-size: 56px;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 20px;
-  text-shadow: 0 0 20px rgba(0, 132, 255, 0.4);
-}
-
-.hero-subtitle {
-  font-size: 18px;
-  color: #cccccc;
-  line-height: 1.6;
+  font-size: 48px;
   margin-bottom: 40px;
 }
 
-.hero-buttons a {
+.hero-text a {
   display: block;
-  margin-bottom: 18px;
+  margin: 15px auto;
   padding: 14px 24px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -174,38 +159,26 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  max-width: 320px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  max-width: 300px;
+  width: 100%;
 }
 
-.hero-buttons a:hover {
-  background: rgba(108, 128, 255, 0.15);
-  transform: scale(1.03);
-  box-shadow: 0 0 25px rgba(108, 128, 255, 0.4), 0 0 45px rgba(108, 128, 255, 0.2);
-}
-
-.hero-image {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
+.hero-text a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(108, 128, 255, 0.3), 0 0 40px rgba(108, 128, 255, 0.2);
 }
 
 .hero-image img {
   max-width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 150px rgba(108, 128, 255, 0.6));
-  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 150px rgba(108, 128, 255, 0.5));
 }
 
-@keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-
+/* === MEDSTOP SECTION === */
 .medstop-section {
     height: 100vh;
   display: flex;
@@ -222,17 +195,11 @@ body {
 }
 
 .medstop-description {
-    display: flex;
     border-right: 2px solid rgba(255, 255, 255, 0.06);
-    flex: 1;
-    min-width: 280px;
-    max-width: 400px;
-    font-size: 16px;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: center;
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  font-size: 16px;
 }
 
 .medstop-description h2 {
@@ -241,11 +208,11 @@ body {
   font-size: 24px;
 }
 
+/* === NOTIFICATIONS === */
 .notification-feed {
   height: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
   position: relative;
-  padding-right: 10px; 
 }
 
 .feed-inner {
@@ -259,11 +226,12 @@ body {
   scroll-margin-top: 120px;
 }
 .notification-wrapper {
-  width: 400px; 
-  height: auto;
+  width: 400px; /* или 100% в зависимости от layout */
+  height: 100%;
   flex-shrink: 0;
   position: relative;
 }
+
 .notification {
   background: #2b3945;
   color: white;
@@ -277,7 +245,7 @@ body {
 
 .notification.fade-out {
   animation: fadeOutUp 0.4s ease forwards;
-  margin-top: -100px; 
+  margin-top: -100px; /* ← добавим визуальный толчок */
 }
 
 @keyframes fadeInUp {
@@ -301,30 +269,8 @@ body {
     transform: translateY(-40px);
   }
 }
-@media (max-width: 768px) {
-  .notification-wrapper {
-    width: 100% !important;
-    padding: 0 10px;
-    box-sizing: border-box;
-  }
 
-  .notification-feed {
-    padding-right: 0;
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  .feed-inner {
-    gap: 8px;
-  }
-
-  .notification {
-    font-size: 13px;
-    padding: 10px 12px;
-  }
-}
-
-
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .nav {
     flex-direction: column;
@@ -402,7 +348,7 @@ body {
   border-radius: 12px;
 }
 
-
+/* Responsive */
 @media screen and (max-width: 768px) {
   .tool-content {
     flex-direction: column;
