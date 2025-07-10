@@ -1,4 +1,4 @@
-/* === RESET & GLOBAL === */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   padding-top: 100px;
 }
 
-/* === RAIN === */
+
 .rain {
   position: fixed;
   top: 0;
@@ -21,7 +21,7 @@ body {
   height: 100vh;
   overflow: hidden;
   z-index: 0;
-  pointer-events: none; /* важно: чтобы клики проходили сквозь дождь */
+  pointer-events: none; 
 }
 #fmcsa{
     scroll-margin-top: 150px;
@@ -58,7 +58,7 @@ body {
   }
 }
 
-/* === NAVIGATION === */
+
 .container {
     display: flex;
 
@@ -121,7 +121,7 @@ body {
   box-shadow: 0 0 20px rgba(108, 128, 255, 0.3), 0 0 40px rgba(108, 128, 255, 0.2);
 }
 
-/* === HERO === */
+
 .hero {
   height: 100vh;
   padding: 60px 40px;
@@ -199,7 +199,6 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Optional floating effect */
 @keyframes float {
   0%   { transform: translateY(0px); }
   50%  { transform: translateY(-10px); }
@@ -207,7 +206,6 @@ body {
 }
 
 
-/* === MEDSTOP SECTION === */
 .medstop-section {
     height: 70vh;
   display: flex;
@@ -243,12 +241,11 @@ body {
   font-size: 24px;
 }
 
-/* === NOTIFICATIONS === */
 .notification-feed {
-  height: 100%; /* займёт всю высоту родителя */
+  height: 100%;
   overflow-y: hidden;
   position: relative;
-  padding-right: 10px; /* чтобы скролл не наезжал на текст */
+  padding-right: 10px; 
 }
 
 .feed-inner {
@@ -262,7 +259,7 @@ body {
   scroll-margin-top: 120px;
 }
 .notification-wrapper {
-  width: 400px; /* или 100% в зависимости от layout */
+  width: 400px; 
   height: auto;
   flex-shrink: 0;
   position: relative;
@@ -280,7 +277,7 @@ body {
 
 .notification.fade-out {
   animation: fadeOutUp 0.4s ease forwards;
-  margin-top: -100px; /* ← добавим визуальный толчок */
+  margin-top: -100px; 
 }
 
 @keyframes fadeInUp {
@@ -327,7 +324,7 @@ body {
   }
 }
 
-/* === RESPONSIVE === */
+
 @media (max-width: 768px) {
   .nav {
     flex-direction: column;
@@ -405,7 +402,7 @@ body {
   border-radius: 12px;
 }
 
-/* Responsive */
+
 @media screen and (max-width: 768px) {
   .tool-content {
     flex-direction: column;
