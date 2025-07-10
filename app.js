@@ -22,7 +22,6 @@ function createNotification(company, drivers) {
   feedInner.appendChild(wrapper);
   messages.push(wrapper);
 
-  // Удаляем верхние, если превышено количество
   if (messages.length > maxVisible) {
     const oldest = messages.shift();
     removeNotification(oldest);
