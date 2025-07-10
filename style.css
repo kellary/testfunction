@@ -1,0 +1,418 @@
+/* === RESET & GLOBAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2d2f33;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  padding-top: 100px;
+}
+
+/* === RAIN === */
+.rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none; /* важно: чтобы клики проходили сквозь дождь */
+}
+#fmcsa{
+    scroll-margin-top: 150px;
+}
+#mail{
+    scroll-margin-top: 150px;
+}
+#csa{
+    scroll-margin-top: 150px;
+}
+.rain__drop {
+  animation-delay: calc(var(--d) * 10s);
+  animation-duration: calc(var(--a) * 10s);
+  animation-iteration-count: infinite;
+  animation-name: drop;
+  animation-timing-function: linear;
+  height: 40px;
+  left: calc(var(--x) * 1%);
+  position: absolute;
+  top: calc((var(--y) + 50) * -1px);
+}
+.rain__drop path {
+  fill: #373ada;
+  opacity: var(--o);
+  transform: scaleY(calc(var(--s) * 1.5));
+}
+@keyframes drop {
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+}
+
+/* === NAVIGATION === */
+.container {
+    display: flex;
+
+    justify-content: flex-start;
+    background-color: rgba(56, 89, 180, 0.116);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, .06);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: center;
+}
+
+.nav-wrapper {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.nav {
+  
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav a {
+  flex: 1;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.06);
+    border-right: 2px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(108, 128, 255, 0.3), 0 0 40px rgba(108, 128, 255, 0.2);
+}
+
+/* === HERO === */
+.hero {
+  height: 100vh;
+  padding: 60px 40px;
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 60px;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(0, 132, 255, 0.4);
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.hero-buttons a {
+  display: block;
+  margin-bottom: 18px;
+  padding: 14px 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  max-width: 320px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-buttons a:hover {
+  background: rgba(108, 128, 255, 0.15);
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(108, 128, 255, 0.4), 0 0 45px rgba(108, 128, 255, 0.2);
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 150px rgba(108, 128, 255, 0.6));
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Optional floating effect */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+
+/* === MEDSTOP SECTION === */
+.medstop-section {
+    height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  margin: 50px auto;
+  max-width: 1200px;
+  background-color: rgba(56, 89, 180, 0.116);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.06);
+  backdrop-filter: blur(6px);
+}
+
+.medstop-description {
+    display: flex;
+    border-right: 2px solid rgba(255, 255, 255, 0.06);
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    font-size: 16px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.medstop-description h2 {
+  margin-bottom: 15px;
+  color: #00d0ff;
+  font-size: 24px;
+}
+
+/* === NOTIFICATIONS === */
+.notification-feed {
+  height: 100%; /* займёт всю высоту родителя */
+  overflow-y: hidden;
+  position: relative;
+  padding-right: 10px; /* чтобы скролл не наезжал на текст */
+}
+
+.feed-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+#medstop-section {
+  scroll-margin-top: 120px;
+}
+.notification-wrapper {
+  width: 400px; /* или 100% в зависимости от layout */
+  height: auto;
+  flex-shrink: 0;
+  position: relative;
+}
+.notification {
+  background: #2b3945;
+  color: white;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 0.4s ease;
+  word-wrap: break-word;
+}
+
+.notification.fade-out {
+  animation: fadeOutUp 0.4s ease forwards;
+  margin-top: -100px; /* ← добавим визуальный толчок */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+@media (max-width: 768px) {
+  .notification-wrapper {
+    width: 100% !important;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .notification-feed {
+    padding-right: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .feed-inner {
+    gap: 8px;
+  }
+
+  .notification {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nav a {
+    width: 100%;
+  }
+  .medstop-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+  }
+  .notification-feed {
+    height: 400px;
+    max-width: 100%;
+  }
+  .medstop-description {
+    font-size: 14px;
+  }
+  .medstop-description h2 {
+    font-size: 18px;
+  }
+  .notification {
+    font-size: 13px;
+  }
+}
+.tool-section {
+    height: 100vh;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: rgba(56, 89, 180, 0.116);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, .06);
+  backdrop-filter: blur(6px);
+}
+
+.tool-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.tool-description {
+  flex: 1 1 55%;
+  min-width: 280px;
+}
+
+.tool-description h2 {
+  color: #00d0ff;
+  margin-bottom: 15px;
+}
+
+.tool-description p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.tool-description ul {
+  padding-left: 20px;
+}
+
+.tool-description li {
+  margin-bottom: 6px;
+}
+
+.tool-preview {
+  flex: 1 1 40%;
+  min-height: 250px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .tool-content {
+    flex-direction: column;
+  }
+
+  .tool-preview {
+    width: 100%;
+    min-height: 200px;
+  }
+}
